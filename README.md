@@ -1,6 +1,6 @@
 ## KMS Models
 
-This extension adds "Models" section in KMS and allows to define custom models on-the-fly. Supported fields for definition in Model: String, Text, Checkbox, File, HasMany, BelongsTo. Note that this extension requires at least PostgreSQL 9.2 because of JSON column type.
+This extension adds "Models" section in [KMS](https://github.com/webgradus/kms) and allows to define custom models on-the-fly. Supported fields for definition in Model: String, Text, Checkbox, File, HasMany, BelongsTo. Note that this extension requires at least PostgreSQL 9.2 because of JSON column type.
 
 ## Installation
 
