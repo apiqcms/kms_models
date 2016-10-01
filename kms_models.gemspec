@@ -10,14 +10,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Igor Petrov"]
   s.email       = ["garik.piton@gmail.com"]
   s.homepage    = "http://webgradus.ru"
-  s.summary     = "Summary of KmsModels."
-  s.description = "Description of KmsModels."
+  s.summary     = "Extension for KMS"
+  s.description = "KMS Models allows to define custom models on-the-fly."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.1"
+  s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency 'friendly_id', '~> 5.0.0'
   s.add_dependency 'kms', ">= 0.3.0"
 
