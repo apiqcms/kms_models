@@ -27,3 +27,8 @@ This extension adds "Models" section in [KMS](https://github.com/webgradus/kms) 
         bundle exec rake assets:precompile
 
 6. Restart KMS instance
+
+## Getting started
+Please watch this video to start using KMS Models:
+
+[![Getting started with KMS Models extension](http://img.youtube.com/vi/WPZoWyd-thE/0.jpg)](https://youtu.be/_INzPDZimsA "Getting started with KMS Models extension")
