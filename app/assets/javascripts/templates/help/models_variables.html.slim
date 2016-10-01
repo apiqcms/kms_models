@@ -1,0 +1,10 @@
+h4 = I18n.t("liquor_help.variables_title")
+p
+  ul
+    li
+      var models
+      p
+        span = I18n.t('liquor_help.variables.models.main_description')
+      p
+        code
+          | {% for service in: models.services do: %}

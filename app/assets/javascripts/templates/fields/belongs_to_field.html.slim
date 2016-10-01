@@ -1,0 +1,7 @@
+label for="{{ field.liquor_name }}"
+  | {{ field.name }}
+ui-select ng-model="entry.values[field.liquor_name]" theme="bootstrap"
+  ui-select-match placeholder=I18n.t(:belongs_to_field_placeholder)
+    | {{ $select.selected.values[$select.selected.model.label_field] || $select.selected.id }}
+  ui-select-choices repeat="relatedEntry.id as relatedEntry in {{ field.liquor_name }}"
+    div ng-bind-html="relatedEntry.values[relatedEntry.model.label_field] | highlight: $select.search"

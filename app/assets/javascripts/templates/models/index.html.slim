@@ -1,0 +1,20 @@
+.row
+  .col-lg-12
+    .widget
+      .widget-header
+        i.fa.fa-list
+        = Kms::Model.model_name.human(count: 1.1)
+        a.btn.btn-sm.btn-primary.pull-right ui-sref="models.new"
+          = I18n.t("add_model")
+      .widget-body.no-padding
+        .table-responsive
+          table.table
+            tbody
+              tr ng-repeat="model in models"
+                td style="width: 80%"
+                  a ui-sref="models.edit({id: model.id})"
+                    | {{ model.kms_model_name }}
+                td
+                  .btn-group.pull-right
+                    a.btn.btn-sm.btn-danger ng-click="destroy(model)" ng-show="currentUser.admin"
+                      i.fa.fa-times

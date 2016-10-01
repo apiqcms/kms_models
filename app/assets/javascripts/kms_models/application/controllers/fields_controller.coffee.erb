@@ -1,0 +1,42 @@
+FieldsController = ($scope, $state, Restangular, $stateParams) ->
+  $scope.types = [
+    { id: 'Kms::StringField', name: "<%= I18n.t("field_types.string") %>"},
+    { id: 'Kms::TextField', name: "<%= I18n.t("field_types.text") %>"},
+    { id: 'Kms::CheckboxField', name: "<%= I18n.t("field_types.checkbox") %>"},
+    { id: 'Kms::FileField', name: "<%= I18n.t("field_types.file") %>"},
+    { id: 'Kms::HasManyField', name: "<%= I18n.t("field_types.has_many") %>"},
+    { id: 'Kms::BelongsToField', name: "<%= I18n.t("field_types.belongs_to") %>"},
+  ]
+
+  Restangular.all('resources').getList().then (templatable_types)->
+    $scope.templatable_types = templatable_types
+
+  Restangular.all('users').customGET('kms_user').then (current_user) ->
+    $scope.currentUser = current_user
+    $scope.currentUser.admin = $scope.currentUser.role == 'admin'
+
+  $scope.field = {}
+
+  $scope.formatType = (field)->
+    fieldType = _.find $scope.types, (type) -> type.id == field.type
+    if $scope.isAssociationField(field) then "#{fieldType.name} (#{$scope.getDisplayableTemplatableType(field)})" else fieldType.name
+
+  $scope.getDisplayableTemplatableType = (field)->
+    templatable_type = _.find $scope.templatable_types, (templatable_type) -> templatable_type.type == field.class_name
+    templatable_type.title
+
+  $scope.isAssociationField = (field)->
+    field.type == 'Kms::HasManyField' or field.type == 'Kms::BelongsToField'
+
+  $scope.addField = ->
+    if $scope.field.name and $scope.field.type
+      $scope.model.fields.push($scope.field)
+      $scope.field = {}
+
+  $scope.removeField = (field)->
+    field['_destroy'] = '1' # for rails deletion
+    #$scope.model.fields = _.without($scope.model.fields, field)
+
+
+angular.module('KMS')
+    .controller('FieldsController', ['$scope', '$state', 'Restangular', '$stateParams', FieldsController])

@@ -1,0 +1,21 @@
+.row
+  .col-lg-12
+    .widget
+      .widget-header
+        i.fa.fa-list
+        = Kms::Entry.model_name.human(count: 1.1)
+        a.btn.btn-sm.btn-primary.pull-right ui-sref="models.entries.new({modelId: model.id})"
+          = I18n.t("add_entry")
+      .widget-body.no-padding
+        .table-responsive
+          table.table
+            tbody as-sortable="entriesSortableOptions" ng-model="entries"
+              tr ng-repeat="entry in entries" as-sortable-item=""
+                td style="width: 80%"
+                  i.fa.fa-bars as-sortable-item-handle="" &nbsp;
+                  a ui-sref="models.entries.edit({modelId: model.id, id: entry.id})"
+                    | {{ entry.values[model.label_field] || entry.id }}
+                td
+                  .btn-group.pull-right
+                    a.btn.btn-sm.btn-danger ng-click="destroy(entry)"
+                      i.fa.fa-times

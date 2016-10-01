@@ -1,0 +1,10 @@
+.form-group
+  label for="kms_model_name" = Kms::Model.human_attribute_name(:kms_model_name)
+  input#kms_model_name.form-control type="text" ng-model="model.kms_model_name"
+.form-group
+  label for="collection_name" = Kms::Model.human_attribute_name(:collection_name)
+  input#collection_name.form-control type="text" ng-model="model.collection_name"
+  small.help-block = I18n.t(:collection_name_field_hint)
+.form-group
+  label for="label_field" = Kms::Model.human_attribute_name(:label_field)
+  select#label_field.form-control ng-model="model.label_field" ng-options="field.liquor_name as field.name for field in model.fields"

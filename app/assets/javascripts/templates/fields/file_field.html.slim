@@ -1,0 +1,8 @@
+label for="{{ field.liquor_name }}"
+  | {{ field.name }}
+div flow-init="{singleFile: true, headers: setHeaders, fileParameterName: 'entry.values[{{field.liquor_name}}]'}" flow-files-submitted="entry.values.{{field.liquor_name}} = $flow.files[0].file" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1,doc:1,xls:1,xlsx:1,pdf:1,docx:1,mp4:1,webm:1}[$file.getExtension()]" flow-file-success="$file.msg = $message"
+  input type="file" flow-btn="" ng-model="entry.values[field.liquor_name]"
+  div class="thumbnail" ng-show="!$flow.files.length"
+    img ng-src="{{entry.values[field.liquor_name].url}}"
+  div class="thumbnail" ng-show="$flow.files.length"
+    img flow-img="$flow.files[0]"

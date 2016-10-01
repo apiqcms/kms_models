@@ -1,0 +1,6 @@
+.row
+  .col-lg-12
+    form role="form" ng-submit="create()" novalidate=""
+      ng-include src="'models/form.html'"
+      ng-include src="'models/fields.html'"
+      button.btn.btn-default type="submit" = I18n.t(:add_model)

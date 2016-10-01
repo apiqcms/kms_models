@@ -1,0 +1,36 @@
+.form-group ng-controller="FieldsController"
+  table.table
+    thead
+      tr
+        th colspan="4" = Kms::Model.human_attribute_name(:fields)
+    tbody
+      tr ng-repeat="field in model.fields" ng-hide="field._destroy"
+        td
+          | {{ field.name }}
+        td
+          | {{ field.liquor_name }}
+        td
+          | {{ formatType(field) }}
+        td
+          | {{ field.required }}
+        td
+          .btn-group.pull-right
+            a.btn.btn-sm.btn-danger ng-click="removeField(field)"
+              i.fa.fa-times
+      tr ng-hide="model.fields.length > 0"
+        td
+          i = I18n.t(:no_fields_yet)
+  .row
+    .col-lg-3
+      input.form-control type="text" required="" placeholder=Kms::Field.human_attribute_name(:name) ng-model="field.name"
+    .col-lg-3
+      input.form-control type="text" required="" placeholder=Kms::Field.human_attribute_name(:liquor_name) ng-model="field.liquor_name"
+    .col-lg-2
+      select#field_type.form-control ng-model="field.type" ng-options="type.id as type.name for type in types" required="" placeholder=Kms::Field.human_attribute_name(:type)
+        option value="" disabled="" selected="" = I18n.t(:select_field_type)
+    .col-lg-2 ng-show="isAssociationField(field)"
+      select#field_class_name.form-control ng-model="field.class_name" ng-options="templatable_type.type as templatable_type.title for templatable_type in templatable_types" required="" placeholder=Kms::Field.human_attribute_name(:class_name)
+        option value="" disabled="" selected="" = I18n.t(:select_model)
+    .col-lg-2
+      a.btn.btn-small.btn-primary ng-click="addField()"
+        i.fa.fa-plus

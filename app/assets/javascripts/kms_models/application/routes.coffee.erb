@@ -1,0 +1,67 @@
+'use strict'
+
+angular.module('KMS').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
+
+    # Application routes
+    $stateProvider
+        .state('models', {
+            url: '/kms/models',
+            views:
+              "header":
+                template: "<%= Kms::Model.model_name.human(count: 1.1) %>"
+              "@":
+                controller: 'ModelsController',
+                controllerAs: 'models',
+                templateUrl: 'models/index.html',
+        })
+        .state('models.new', {
+            url: '/new',
+            views:
+              "header@":
+                template: "<%= I18n.t(:new_model) %>"
+              "@":
+                controller: 'ModelsController',
+                controllerAs: 'models',
+                templateUrl: 'models/new.html',
+        })
+        .state('models.edit', {
+            url: '/:id/edit',
+            views:
+              "header@":
+                template: "<%= I18n.t(:edit_model) %>"
+              "@":
+                controller: 'ModelsController',
+                controllerAs: 'models',
+                templateUrl: 'models/edit.html',
+        })
+        .state('models.entries', {
+            url: '/:modelId/entries',
+            views:
+              "header@":
+                template: "<%= Kms::Entry.model_name.human(count: 1.1) %>"
+              "@":
+                controller: 'EntriesController',
+                controllerAs: 'entries',
+                templateUrl: 'entries/index.html',
+        })
+        .state('models.entries.new', {
+            url: '/new',
+            views:
+              "header@":
+                template: "<%= I18n.t(:new_entry) %>"
+              "@":
+                controller: 'EntriesController',
+                controllerAs: 'entries',
+                templateUrl: 'entries/new.html'
+        })
+        .state('models.entries.edit', {
+            url: '/:id/edit',
+            views:
+              "header@":
+                template: "<%= I18n.t(:edit_entry) %>"
+              "@":
+                controller: 'EntriesController',
+                controllerAs: 'entries',
+                templateUrl: 'entries/edit.html'
+        })
+]

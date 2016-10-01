@@ -1,0 +1,52 @@
+ru:
+  models: "Модели"
+  add_model: "Добавить модель"
+  new_model: "Новая Модель"
+  edit_model: "Редактирование модели"
+  update_model: "Обновить модель"
+  add_entry: "Добавить элемент"
+  new_entry: "Новый Элемент"
+  edit_entry: "Редактирование Элемента"
+  update_entry: "Обновить элемент"
+  no_fields_yet: "Пока нет ни одного свойства. Добавьте первое свойство с помощью формы ниже."
+  select_field_type: "Выберите тип свойства"
+  select_model: "Выберите модель"
+  collection_name_field_hint: "К коллекции можно будет обратиться так: models.your_collection_name (напр., models.services)"
+  has_many_field_placeholder: "Выберите связанные объекты..."
+  belongs_to_field_placeholder: "Выберите связанный объект..."
+  field_types:
+    string: "Строка"
+    text: "Текст"
+    checkbox: "Чекбокс"
+    file: "Файл"
+    has_many: "Имеет много"
+    belongs_to: "Связано с"
+  liquor_help:
+    variables:
+      models:
+        main_description: 'Переменная models предоставляет доступ к коллекциям моделей, определённых пользователем на вкладке "Модели". Доступ осуществляется через название коллекции модели - поле "Название коллекции (для Liquor)" при создании модели. Например, если создана модель с названием коллекции services, то можно использовать for для итерации по элементам коллекции следующим образом:'
+  activerecord:
+    models:
+      kms/model:
+        one: "Модель"
+        few: "Модели"
+        many: "Моделей"
+        other: "Модели"
+      kms/entry:
+        one: "Элемент"
+        few: "Элемента"
+        many: "Элементов"
+        other: "Элементы"
+    attributes:
+      kms/model:
+        kms_model_name: "Название"
+        collection_name: "Название коллекции (для Liquor)"
+        fields: "Свойства"
+        label_field: "Поле, используемое для генерации ссылок на объекты"
+      kms/field:
+        name: "Название"
+        liquor_name: "Название для Liquor"
+        type: "Тип"
+        required: "Обязательное"
+      kms/entry:
+        slug: "Ссылка/URL"
