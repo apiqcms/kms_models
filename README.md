@@ -16,15 +16,15 @@ This extension adds "Models" section in [KMS](https://github.com/webgradus/kms) 
 
 3. Copy migrations:
 
-        rake kms_models:install:migrations
+        rails kms_models:install:migrations
 
 4. Migrate:
 
-        bundle exec rake db:migrate
+        bundle exec rails db:migrate
 
 5. Recompile assets:
 
-        bundle exec rake assets:precompile
+        bundle exec rails assets:precompile
 
 6. Restart KMS instance
 

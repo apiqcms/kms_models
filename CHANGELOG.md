@@ -1,3 +1,7 @@
+## Unreleased
+
+* [changed] Rails 5 support
+
 ## Version 0.6.0 2016-10-01
 
 * [changed] allow to edit Entry slug, but autogenerate on creation
