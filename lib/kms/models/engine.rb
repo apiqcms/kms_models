@@ -10,6 +10,14 @@ module Kms
           require_dependency(c)
         end
       end
+
+      initializer "kms_models.register_models_collections" do |app|
+        app.config.after_initialize do
+          Kms::Model.pluck(:collection_name).each do |collection_name|
+            Kms::ModelsWrapperDrop.register_model collection_name
+          end if Kms::Model.table_exists?
+        end
+      end
     end
   end
 end
