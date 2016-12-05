@@ -1,5 +1,6 @@
-## Unreleased
+## Version 0.7.0 2016-12-05
 
+* [fixed] fix bug when running kms_models install generator
 * [changed] Rails 5 support
 
 ## Version 0.6.0 2016-10-01
