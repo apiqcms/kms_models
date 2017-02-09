@@ -4,7 +4,7 @@
       tr
         th colspan="4" = Kms::Model.human_attribute_name(:fields)
     tbody
-      tr ng-repeat="field in model.fields" ng-hide="field._destroy"
+      tr ng-repeat="field in model.fields_attributes" ng-hide="field._destroy"
         td
           | {{ field.name }}
         td
@@ -17,7 +17,7 @@
           .btn-group.pull-right
             a.btn.btn-sm.btn-danger ng-click="removeField(field)"
               i.fa.fa-times
-      tr ng-hide="model.fields.length > 0"
+      tr ng-hide="model.fields_attributes.length > 0"
         td
           i = I18n.t(:no_fields_yet)
   .row

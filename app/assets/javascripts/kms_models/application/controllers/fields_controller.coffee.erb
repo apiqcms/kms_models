@@ -30,7 +30,7 @@ FieldsController = ($scope, $state, Restangular, $stateParams) ->
 
   $scope.addField = ->
     if $scope.field.name and $scope.field.type
-      $scope.model.fields.push($scope.field)
+      $scope.model.fields_attributes.push($scope.field)
       $scope.field = {}
 
   $scope.removeField = (field)->

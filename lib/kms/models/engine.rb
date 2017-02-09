@@ -1,5 +1,4 @@
 require "friendly_id"
-require 'kms/drops/models_wrapper_drop'
 module Kms
   module Models
     class Engine < ::Rails::Engine

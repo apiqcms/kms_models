@@ -1,4 +1,4 @@
-class CreateKmsFields < ActiveRecord::Migration
+class CreateKmsFields < ActiveRecord::Migration[4.2]
   def change
     create_table :kms_fields do |t|
       t.string :name

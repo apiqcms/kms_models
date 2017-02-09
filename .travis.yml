@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.3.0
+services:
+  - postgresql
+addons:
+  postgresql: "9.2"
+script:
+  - bundle exec rspec
+before_script:
+  - cp spec/internal/config/database.yml.travis spec/internal/config/database.yml

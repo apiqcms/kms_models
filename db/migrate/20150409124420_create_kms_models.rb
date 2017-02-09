@@ -1,4 +1,4 @@
-class CreateKmsModels < ActiveRecord::Migration
+class CreateKmsModels < ActiveRecord::Migration[4.2]
   def change
     create_table :kms_models do |t|
       t.string :model_name

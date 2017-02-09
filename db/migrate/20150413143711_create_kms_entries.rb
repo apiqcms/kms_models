@@ -1,4 +1,4 @@
-class CreateKmsEntries < ActiveRecord::Migration
+class CreateKmsEntries < ActiveRecord::Migration[4.2]
   def change
     create_table :kms_entries do |t|
       t.belongs_to :model, index: true

@@ -1,35 +1,34 @@
 module Kms
   module Models
     class ModelsController < ApplicationController
+      wrap_parameters :model, include: [:kms_model_name, :collection_name, :label_field, :fields_attributes]
 
       def index
-        render json: Model.all.to_json
+        render json: Model.all, root: false
       end
 
       def show
         @model = Model.find(params[:id])
-        render json: @model.to_json(include: {:fields => {methods: :type}})
+        render json: @model, root: false
       end
 
       def create
-        params[:model].merge!(fields_attributes: params[:fields])
         @model = Model.new(model_params)
         if @model.save
           Kms::ResourceService.register(:models, @model, "fa-tasks")
           Kms::ModelsWrapperDrop.register_model @model.collection_name
-          render json: @model.to_json
+          render json: @model, root: false
         else
-          render json: @model.to_json(methods: :errors), status: :unprocessable_entity
+          render json: {errors: @model.errors}.to_json, status: :unprocessable_entity
         end
       end
 
       def update
-        params[:model].merge!(fields_attributes: params[:fields])
         @model = Model.find(params[:id])
         if @model.update_attributes(model_params)
-          render json: @model.to_json
+          render json: @model, root: false
         else
-          render json: @model.to_json(methods: :errors), status: :unprocessable_entity
+          render json: {errors: @model.errors}.to_json, status: :unprocessable_entity
         end
       end
 
@@ -37,13 +36,13 @@ module Kms
         @model = Model.find(params[:id])
         @model.destroy
         Kms::ResourceService.unregister(:models, @model)
-        render json: @model.to_json
+        render json: @model, root: false
       end
 
       protected
 
       def model_params
-        params.require(:model).permit!
+        params.require(:model).permit(:kms_model_name, :collection_name, :label_field, fields_attributes: [:name, :liquor_name, :type, :class_name])
       end
 
     end
