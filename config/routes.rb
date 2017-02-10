@@ -9,3 +9,6 @@ Kms::Models::Engine.routes.draw do
     end
   end
 end
+Rails.application.routes.draw do
+  post '/entries/:collection_name' => 'kms/public/entries#create'
+end

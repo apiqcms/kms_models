@@ -43,7 +43,7 @@ EntriesController = ($scope, $state, Restangular, $stateParams, Alertify, Errors
     $scope.entry = {values: {}}
 
   $scope.getAssociationFields = (model)->
-    _.filter model.fields, (field) -> field.type == 'Kms::HasManyField' or field.type == 'Kms::BelongsToField'
+    _.filter model.fields_attributes, (field) -> field.type == 'Kms::HasManyField' or field.type == 'Kms::BelongsToField'
 
   $scope.getFieldTemplateName = (field)->
     typeSplitted = field.type.split '::'

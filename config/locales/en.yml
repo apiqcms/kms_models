@@ -12,6 +12,7 @@ en:
   select_field_type: "Select field type"
   select_model: "Select Model"
   collection_name_field_hint: "You can access model collection like this: models.your_collection_name (ex., models.services)"
+  allow_creation_using_form_field_hint: "On website you can place a form allowing to create model entries"
   has_many_field_placeholder: "Select related objects..."
   belongs_to_field_placeholder: "Select related object..."
   field_types:
@@ -25,6 +26,13 @@ en:
     variables:
       models:
         main_description: 'Variable "models" gives access to models collections of entries. You can access collection using model collection name - "Collection name (for Liquor)" field. For example, if you created some Model with "services" collection name, then you could iterate its collection using "for" tag like this:'
+    endpoints:
+      entries:
+        post:
+          main_description: This endpoint allows you to setup form submitting Model's elements. For example, if you have a model with collection name "posts" (and field with "title" Liquor name), you could create a form with action="/entries/posts" and an input with name="entry[title]"
+          parameters:
+            entry: Value of each parameter will be saved to corresponding Model's entry field
+
   activerecord:
     models:
       kms/model:
@@ -43,6 +51,7 @@ en:
         collection_name: "Collection name (for Liquor)"
         fields: "Fields"
         label_field: "Label field (used for URL/slug generating)"
+        allow_creation_using_form: "Allow creation using form"
       kms/field:
         name: "Name"
         liquor_name: "Name for Liquor"

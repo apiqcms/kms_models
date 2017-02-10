@@ -23,7 +23,7 @@ GIT
 PATH
   remote: .
   specs:
-    kms_models (0.7.0)
+    kms_models (0.8.0)
       friendly_id (~> 5.0.0)
       kms (>= 0.6.0)
 

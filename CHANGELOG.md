@@ -1,3 +1,8 @@
+## Version 0.8.0 2017-02-10
+
+* [added] Rspec setup
+* [added] add feature allowing model elements creation using website forms
+
 ## Version 0.7.0 2016-12-05
 
 * [fixed] fix bug when running kms_models install generator

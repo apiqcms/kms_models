@@ -1,0 +1,26 @@
+h4 = I18n.t("liquor_help.endpoints_title")
+p
+  ul
+    li
+      var POST /entries/:collection_name
+      p
+        span = I18n.t('liquor_help.endpoints.entries.post.main_description')
+      p
+        code ng-non-bindable=''
+          | &lt;form action="/entries/:collection_name" method="post"&gt;
+          br
+          |   &lt;input type="hidden" name='authenticity_token' value='{{ request.form_authenticity_token }}'&gt;
+          br
+          |   &lt;input type="text" name="entry[name]"&gt;
+          br
+          |   &lt;input type="submit" value="Send"&gt;
+          br
+          | &lt;/form&gt;
+      p
+        table.table
+          tr
+            th #{ I18n.t('liquor_help.parameter') } /entries/:collection_name
+            th = I18n.t('liquor_help.description')
+          tr
+            td entry[:field_liquor_name]
+            td = I18n.t('liquor_help.endpoints.entries.post.parameters.entry')

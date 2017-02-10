@@ -12,6 +12,7 @@ ru:
   select_field_type: "Выберите тип свойства"
   select_model: "Выберите модель"
   collection_name_field_hint: "К коллекции можно будет обратиться так: models.your_collection_name (напр., models.services)"
+  allow_creation_using_form_field_hint: "На сайте можно будет разместить форму для создания элементов модели"
   has_many_field_placeholder: "Выберите связанные объекты..."
   belongs_to_field_placeholder: "Выберите связанный объект..."
   field_types:
@@ -25,6 +26,12 @@ ru:
     variables:
       models:
         main_description: 'Переменная models предоставляет доступ к коллекциям моделей, определённых пользователем на вкладке "Модели". Доступ осуществляется через название коллекции модели - поле "Название коллекции (для Liquor)" при создании модели. Например, если создана модель с названием коллекции services, то можно использовать for для итерации по элементам коллекции следующим образом:'
+    endpoints:
+      entries:
+        post:
+          main_description: Этот запрос позволяет создавать формы для отправки элементов модели. Например, если есть модель с названием коллекции "posts" (и поле с названием для Liquor - "title"), то можно создать форму с action="/entries/posts" и input с name="entry[title]"
+          parameters:
+            entry: Значение каждого параметра такого вида будет сохранено в соответствующее поле элемента модели
   activerecord:
     models:
       kms/model:
@@ -43,6 +50,7 @@ ru:
         collection_name: "Название коллекции (для Liquor)"
         fields: "Свойства"
         label_field: "Поле, используемое для генерации ссылок на объекты"
+        allow_creation_using_form: "Разрешить создание элементов с помощью форм"
       kms/field:
         name: "Название"
         liquor_name: "Название для Liquor"
