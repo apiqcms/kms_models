@@ -6,7 +6,7 @@ module Kms
 
       def create
         entry = @model.entries.new(values: entry_params)
-        unless entry.save
+        unless @model.allow_creation_using_form? && entry.save
           render json: {errors: entry.errors}.to_json, status: :unprocessable_entity
         end
       end
