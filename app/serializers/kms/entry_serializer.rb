@@ -11,7 +11,7 @@ module Kms
       object.model.fields.file_fields.each do |file_field|
         uploader = EntryFileUploader.new(OpenStruct.new(model: object, field_name: file_field.liquor_name))
         uploader.retrieve_from_store! values_with_urls[file_field.liquor_name]
-        values_with_urls[file_field.liquor_name] = { url: uploader.url }
+        values_with_urls[file_field.liquor_name] = { url: uploader.file.exists? ? uploader.url : nil }
       end
       # prepare checkbox fields - cause PostgreSQL json stored as strings
       object.model.fields.checkbox_fields.each do |checkbox_field|
