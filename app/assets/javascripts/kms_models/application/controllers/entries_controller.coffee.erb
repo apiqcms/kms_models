@@ -27,8 +27,9 @@ EntriesController = ($scope, $state, Restangular, $stateParams, Alertify, Errors
 
   $scope.initAssociationField = (field)->
     if field.type == 'Kms::HasManyField'
-      $scope.entry.values[field.liquor_name] = _.filter $scope[field.liquor_name], (element)->
-        _.contains $scope.entry.values[field.liquor_name], element.id.toString()
+      fieldEntries = _.map $scope.entry.values[field.liquor_name], (entryId)->
+        _.find $scope[field.liquor_name], { 'id': parseInt(entryId) }
+      $scope.entry.values[field.liquor_name] = _.compact fieldEntries
     else
       $scope.entry.values[field.liquor_name] = _.find $scope[field.liquor_name], (element)->
         $scope.entry.values[field.liquor_name] == element.id.toString()
@@ -65,8 +66,8 @@ EntriesController = ($scope, $state, Restangular, $stateParams, Alertify, Errors
     if $scope.entry.slug
       fd.append("entry[slug]", $scope.entry.slug)
     for key, value of $scope.entry.values
-      continue if value == undefined
-      if value
+      # continue if value == undefined
+      unless _.isEmpty(value)
         if value.constructor.name == 'Array'
           for element in value
             id = if element.constructor.name == 'Object' then element.id else element
@@ -74,7 +75,7 @@ EntriesController = ($scope, $state, Restangular, $stateParams, Alertify, Errors
         else if value.constructor.name != 'Object'
           fd.append("entry[values][#{key}]", value || '')
       else
-        fd.append("entry[values][#{key}]", value || '')
+        fd.append("entry[values][#{key}]", if value? then value else '')
     $scope.entry.withHttpConfig({ transformRequest: angular.identity }).post('', fd, '', {"Content-Type": undefined}).then ->
       $state.go('models.entries', modelId: $scope.model.id)
     ,(response)->
