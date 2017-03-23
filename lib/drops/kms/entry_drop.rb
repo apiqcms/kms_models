@@ -1,7 +1,7 @@
 module Kms
   class EntryDrop < Liquor::Drop
 
-    attributes :id, :created_at, :permalink, :model_collection_name
+    attributes :id, :created_at, :slug, :permalink, :model_collection_name
     scopes :order
 
     # overriding methods cause we work with 'json' column
