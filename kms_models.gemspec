@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Kms::Models::VERSION
   s.authors     = ["Igor Petrov"]
   s.email       = ["garik.piton@gmail.com"]
-  s.homepage    = "http://webgradus.ru"
+  s.homepage    = "https://github.com/webgradus/kms_models"
   s.summary     = "Extension for KMS"
   s.description = "KMS Models allows to define custom models on-the-fly."
   s.license     = "MIT"

@@ -1,5 +1,7 @@
-## Version 0.8.0 2017-02-10
+## Version 0.8.0 2017-03-23
 
+* [fixed] fix incorrect url for file field when no value was stored
+* [changed] preserve order of has_many field values - closes #9
 * [added] Rspec setup
 * [added] add feature allowing model elements creation using website forms
 
