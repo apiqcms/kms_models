@@ -9,3 +9,4 @@ spec/internal/.sass-cache
 *.swo
 *~
 .byebug_history
+Gemfile.lock
