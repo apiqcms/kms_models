@@ -1,8 +1,9 @@
 ## KMS Models
 
-[![Build Status](https://travis-ci.org/webgradus/kms_models.svg?branch=master)](https://travis-ci.org/webgradus/kms_models)
+[![Build Status](https://travis-ci.org/apiqcms/kms_models.svg?branch=master)](https://travis-ci.org/apiqcms/kms_models)
+[![Code Climate](https://codeclimate.com/github/apiqcms/kms_models/badges/gpa.svg)](https://codeclimate.com/github/apiqcms/kms_models)
 
-This extension adds "Models" section in [KMS](https://github.com/webgradus/kms) and allows to define custom models on-the-fly. Supported fields for definition in Model: String, Text, Checkbox, File, HasMany, BelongsTo. Note that this extension requires at least PostgreSQL 9.2 because of JSON column type.
+This extension adds "Models" section in [KMS](https://github.com/apiqcms/kms) and allows to define custom models on-the-fly. Supported fields for definition in Model: String, Text, Checkbox, File, HasMany, BelongsTo. Note that this extension requires at least PostgreSQL 9.2 because of JSON column type.
 
 ## Installation
 
