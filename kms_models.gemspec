@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'friendly_id', '~> 5.0.0'
-  s.add_dependency 'kms', ">= 0.6.0"
+  s.add_dependency 'kms', ">= 0.9.0"
 
   s.add_development_dependency 'combustion', '~> 0.5.4'
   s.add_development_dependency 'factory_girl_rails', '~> 4.8'
