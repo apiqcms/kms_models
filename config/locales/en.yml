@@ -15,6 +15,10 @@ en:
   allow_creation_using_form_field_hint: "On website you can place a form allowing to create model entries"
   has_many_field_placeholder: "Select related objects..."
   belongs_to_field_placeholder: "Select related object..."
+  models_description: "Models are where you organize your content (basically dynamic) like 'News', 'Blog', 'Services' and etc."
+  create_first_model: "Create first model"
+  entries_description: "Here you would create content for corresponding Model"
+  create_first_entry: "Create first entry"
   field_types:
     string: "String"
     text: "Text"

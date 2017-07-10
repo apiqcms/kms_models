@@ -1,4 +1,4 @@
-.row
+.row ng-show="entries.length"
   .col-lg-12
     .widget
       .widget-header
@@ -19,3 +19,14 @@
                   .btn-group.pull-right
                     a.btn.btn-sm.btn-danger ng-click="destroy(entry)"
                       i.fa.fa-times
+.row ng-show="!entries.length"
+  .center-block
+    .jumbotron.vertical-center.text-center
+      .container
+        h1
+          span.fa-stack.fa-lg
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-list.fa-stack-1x
+        p = I18n.t(:entries_description)
+        p
+          a.btn.btn-primary.btn-lg ui-sref="models.entries.new({modelId: model.id})" role="button" = I18n.t(:create_first_entry)

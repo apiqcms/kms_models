@@ -15,6 +15,10 @@ ru:
   allow_creation_using_form_field_hint: "На сайте можно будет разместить форму для создания элементов модели"
   has_many_field_placeholder: "Выберите связанные объекты..."
   belongs_to_field_placeholder: "Выберите связанный объект..."
+  models_description: "Модели - это ваш динамический контент. Например, 'Новости', 'Блог', 'Услуги' и тд."
+  create_first_model: "Создать первую модель"
+  entries_description: "Здесь вы можете создавать элементы соответствующей Модели"
+  create_first_entry: "Создать первый элемент"
   field_types:
     string: "Строка"
     text: "Текст"

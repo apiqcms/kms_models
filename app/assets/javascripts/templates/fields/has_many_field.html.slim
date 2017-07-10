@@ -1,7 +1,7 @@
 label for="{{ field.liquor_name }}"
   | {{ field.name }}
 ui-select multiple="" ng-model="entry.values[field.liquor_name]" theme="bootstrap" on-select="addObject($item, field)" on-remove='removeObject($item, field)'
-  ui-select-match placeholder=I18n.t(:has_many_field_placeholder)
+  ui-select-match placeholder=I18n.t(:has_many_field_placeholder) class="ui-select-match"
     | {{ $item.values[$item.model.label_field] || $item.id }}
   ui-select-choices repeat="childEntry.id as childEntry in {{ field.liquor_name }}"
     div ng-bind-html="childEntry.values[childEntry.model.label_field] | highlight: $select.search"

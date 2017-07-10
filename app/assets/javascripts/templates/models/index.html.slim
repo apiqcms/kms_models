@@ -1,8 +1,8 @@
-.row
+.row ng-show="models.length"
   .col-lg-12
     .widget
       .widget-header
-        i.fa.fa-list
+        i.fa.fa-tasks
         = Kms::Model.model_name.human(count: 1.1)
         a.btn.btn-sm.btn-primary.pull-right ui-sref="models.new"
           = I18n.t("add_model")
@@ -18,3 +18,14 @@
                   .btn-group.pull-right
                     a.btn.btn-sm.btn-danger ng-click="destroy(model)" ng-show="currentUser.admin"
                       i.fa.fa-times
+.row ng-show="!models.length"
+  .center-block
+    .jumbotron.vertical-center.text-center
+      .container
+        h1
+          span.fa-stack.fa-lg
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-tasks.fa-stack-1x
+        p = I18n.t(:models_description)
+        p
+          a.btn.btn-primary.btn-lg ui-sref="models.new" role="button" = I18n.t(:create_first_model)
