@@ -1,4 +1,4 @@
-ModelsController = ($scope, $state, Restangular, $stateParams, Alertify, ErrorsService) ->
+ModelsController = ($scope, $state, Restangular, $stateParams, Alertify, ErrorsService, TransliterationService) ->
   $scope.store = Restangular.all('models')
 
   Restangular.all('users').customGET('kms_user').then (current_user) ->
@@ -17,6 +17,10 @@ ModelsController = ($scope, $state, Restangular, $stateParams, Alertify, ErrorsS
   $scope.$watchCollection 'model.fields_attributes', (newFields, oldFields) ->
     if newFields and newFields.length > 0 and oldFields and oldFields.length == 0
       $scope.model.label_field =newFields[0].liquor_name
+
+  $scope.$watch 'model.kms_model_name', (newValue, oldValue) ->
+    if newValue? and !$scope.model.id
+      $scope.model.collection_name = _.snakeCase TransliterationService.translit(newValue, 5).replace(/`/g, '')
 
   $scope.create = ->
     $scope.store.post($scope.model).then ->
@@ -39,4 +43,4 @@ ModelsController = ($scope, $state, Restangular, $stateParams, Alertify, ErrorsS
 
 
 angular.module('KMS')
-    .controller('ModelsController', ['$scope', '$state', 'Restangular', '$stateParams', 'Alertify', 'ErrorsService', ModelsController])
+    .controller('ModelsController', ['$scope', '$state', 'Restangular', '$stateParams', 'Alertify', 'ErrorsService', 'TransliterationService', ModelsController])

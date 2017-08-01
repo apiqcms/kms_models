@@ -1,4 +1,4 @@
-FieldsController = ($scope, $state, Restangular, $stateParams) ->
+FieldsController = ($scope, $state, Restangular, $stateParams, TransliterationService) ->
   $scope.types = [
     { id: 'Kms::StringField', name: "<%= I18n.t("field_types.string") %>"},
     { id: 'Kms::TextField', name: "<%= I18n.t("field_types.text") %>"},
@@ -16,6 +16,10 @@ FieldsController = ($scope, $state, Restangular, $stateParams) ->
     $scope.currentUser.admin = $scope.currentUser.role == 'admin'
 
   $scope.field = {}
+
+  $scope.$watch 'field.name', (newValue, oldValue) ->
+    if newValue? and !$scope.field.id
+      $scope.field.liquor_name = _.snakeCase TransliterationService.translit(newValue, 5).replace(/`/g, '')
 
   $scope.formatType = (field)->
     fieldType = _.find $scope.types, (type) -> type.id == field.type
@@ -39,4 +43,4 @@ FieldsController = ($scope, $state, Restangular, $stateParams) ->
 
 
 angular.module('KMS')
-    .controller('FieldsController', ['$scope', '$state', 'Restangular', '$stateParams', FieldsController])
+    .controller('FieldsController', ['$scope', '$state', 'Restangular', '$stateParams', 'TransliterationService', FieldsController])
