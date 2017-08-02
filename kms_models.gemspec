@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'friendly_id', '~> 5.0.0'
   s.add_dependency 'kms', ">= 1.0.0"
 
-  s.add_development_dependency 'combustion', '~> 0.5.4'
+  s.add_development_dependency 'combustion', '~> 0.5'
   s.add_development_dependency 'factory_girl_rails', '~> 4.8'
   s.add_development_dependency 'rspec-rails', '~> 3.5', '>= 3.5.0'
   s.add_development_dependency 'shoulda-matchers', '~> 3.1'

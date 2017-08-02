@@ -3,9 +3,10 @@
     thead
       tr
         th colspan="4" = Kms::Model.human_attribute_name(:fields)
-    tbody
-      tr ng-repeat="field in model.fields_attributes" ng-hide="field._destroy"
+    tbody as-sortable="fieldsSortableOptions" ng-model="model.fields_attributes"
+      tr ng-repeat="field in model.fields_attributes" ng-hide="field._destroy" as-sortable-item=""
         td
+          i.fa.fa-bars as-sortable-item-handle="" &nbsp;
           | {{ field.name }}
         td
           | {{ field.liquor_name }}

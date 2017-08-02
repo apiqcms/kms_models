@@ -8,6 +8,14 @@ FieldsController = ($scope, $state, Restangular, $stateParams, TransliterationSe
     { id: 'Kms::BelongsToField', name: "<%= I18n.t("field_types.belongs_to") %>"},
   ]
 
+  $scope.fieldsSortableOptions =
+    orderChanged: (event)->
+      for field, index in event.dest.sortableScope.modelValue
+        field_copy =
+          id: field.id
+          position: index
+        Restangular.restangularizeElement($scope.model, field_copy, 'fields').put()
+
   Restangular.all('resources').getList().then (templatable_types)->
     $scope.templatable_types = templatable_types
 

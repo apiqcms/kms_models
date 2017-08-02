@@ -6,6 +6,7 @@ Kms::Models::Engine.routes.draw do
           post '' => 'entries#update'
         end
       end
+      resources :fields, only: :update, format: true
     end
   end
 end

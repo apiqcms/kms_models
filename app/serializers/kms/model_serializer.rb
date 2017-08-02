@@ -5,7 +5,7 @@ module Kms
     has_many :fields_attributes, serializer: Kms::FieldSerializer
 
     def fields_attributes
-      object.fields
+      object.fields.order(:position)
     end
 
   end
