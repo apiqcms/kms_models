@@ -1,10 +1,12 @@
 Kms::Page.class_eval do
   # fetch item by slug
-  def fetch_item!(slug)
+  def fetch_item(slug)
     return nil unless templatable?
     templatable_type.constantize.find_by_slug!(slug)
   rescue NameError
-    Kms::Entry.find_by_slug!(slug)
+    model = Kms::Model.find(templatable_type.to_i)
+    model.entries.find_by_slug(slug)
+    # Kms::Entry.find_by_slug(slug)
   end
 
   # fetch items for templatable page
