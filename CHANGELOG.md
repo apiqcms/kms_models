@@ -1,3 +1,14 @@
+## Version 1.0.0 2017-08-02
+
+* [fixed] find_by and find_all_by now can find results not only by dynamic fields but also by id, slug, position and etc.
+* [added] add slug attribute to entry drop
+* [added]	support Amazon S3 storage - closes #14
+* [added] add blank state screens for models and entries
+* [added] automatic Model's collection_name and Fields liquor_name generating - closes #16
+* [changed] replace JSON column with JSONB - closes #15
+* [added] Sorting (by dran'n'drop) Model's fields - closes #4
+* [fixed]	fetch item only in scope of model - page's templatable type
+
 ## Version 0.8.0 2017-03-23
 
 * [fixed] fix incorrect url for file field when no value was stored
