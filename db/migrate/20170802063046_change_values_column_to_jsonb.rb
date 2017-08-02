@@ -1,5 +1,5 @@
 class ChangeValuesColumnToJsonb < ActiveRecord::Migration[5.1]
   def change
-    change_column :kms_entries, :values, :jsonb, default: {}
+    execute "ALTER TABLE kms_entries ALTER COLUMN values SET DATA TYPE jsonb USING values::jsonb"
   end
 end
