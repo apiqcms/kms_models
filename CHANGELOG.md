@@ -1,3 +1,7 @@
+## Version 1.0.1 2017-08-09
+
+* [fixed] fix "uninitialized constant Rails::Generators::Base"
+
 ## Version 1.0.0 2017-08-02
 
 * [fixed] find_by and find_all_by now can find results not only by dynamic fields but also by id, slug, position and etc.
