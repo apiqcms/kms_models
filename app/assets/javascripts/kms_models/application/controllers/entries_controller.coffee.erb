@@ -3,6 +3,7 @@ EntriesController = ($scope, $state, Restangular, $stateParams, Alertify, Errors
   $scope.store = Restangular.one("models", $stateParams.modelId).all("entries")
   $scope.editorOptions =
     filebrowserUploadUrl: '/kms/assets/ckeditor'
+    language: '<%= I18n.locale.to_s %>'
 
   #Restangular.all('users').customGET('kms_user').then (current_user) ->
     #$scope.currentUser = current_user
