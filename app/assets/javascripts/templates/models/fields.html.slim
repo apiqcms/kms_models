@@ -11,7 +11,8 @@
         td
           | {{ field.liquor_name }}
         td
-          | {{ formatType(field) }}
+          i.fa ng-class="findTypeByField(field).icon"
+          |  {{ formatType(field) }}
         td
           | {{ field.required }}
         td
@@ -27,8 +28,13 @@
     .col-lg-3
       input.form-control type="text" required="" placeholder=Kms::Field.human_attribute_name(:liquor_name) ng-model="field.liquor_name"
     .col-lg-2
-      select#field_type.form-control ng-model="field.type" ng-options="type.id as type.name for type in types" required="" placeholder=Kms::Field.human_attribute_name(:type)
-        option value="" disabled="" selected="" = I18n.t(:select_field_type)
+      ui-select ng-model="field.type" theme="bootstrap"
+        ui-select-match placeholder=I18n.t(:select_field_type)
+          i.fa ng-class="$select.selected.icon"
+          |  {{ $select.selected.name }}
+        ui-select-choices repeat="type.id as type in types"
+          i.fa ng-class="type.icon"
+          |  {{ type.name | highlight: $select.search }}
     .col-lg-2 ng-show="isAssociationField(field)"
       select#field_class_name.form-control ng-model="field.class_name" ng-options="templatable_type.type as templatable_type.title for templatable_type in templatable_types" required="" placeholder=Kms::Field.human_attribute_name(:class_name)
         option value="" disabled="" selected="" = I18n.t(:select_model)
