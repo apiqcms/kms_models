@@ -23,6 +23,7 @@ en:
     string: "String"
     text: "Text"
     checkbox: "Checkbox"
+    date: "Date"
     file: "File"
     has_many: "Has many"
     belongs_to: "Belongs to"

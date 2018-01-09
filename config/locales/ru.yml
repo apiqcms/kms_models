@@ -23,6 +23,7 @@ ru:
     string: "Строка"
     text: "Текст"
     checkbox: "Чекбокс"
+    date: "Дата"
     file: "Файл"
     has_many: "Имеет много"
     belongs_to: "Связано с"

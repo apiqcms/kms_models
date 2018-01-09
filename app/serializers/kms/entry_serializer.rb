@@ -17,6 +17,10 @@ module Kms
       object.model.fields.checkbox_fields.each do |checkbox_field|
         values_with_urls[checkbox_field.liquor_name] = values_with_urls[checkbox_field.liquor_name] == 'true'
       end
+      # prepare checkbox fields - cause PostgreSQL json stored as strings
+      object.model.fields.date_fields.each do |date_field|
+        values_with_urls[date_field.liquor_name] = Date.parse(values_with_urls[date_field.liquor_name])
+      end
       values_with_urls
     end
   end
