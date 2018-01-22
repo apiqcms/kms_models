@@ -1,7 +1,7 @@
 module Kms
   module Models
     class ModelsController < ApplicationController
-      wrap_parameters :model, include: [:kms_model_name, :collection_name, :label_field, :fields_attributes, :allow_creation_using_form]
+      wrap_parameters :model, include: [:kms_model_name, :collection_name, :description, :label_field, :fields_attributes, :allow_creation_using_form]
 
       def index
         render json: Model.all, root: false
@@ -38,7 +38,7 @@ module Kms
       protected
 
       def model_params
-        params.require(:model).permit(:kms_model_name, :collection_name, :label_field, :allow_creation_using_form, fields_attributes: [:id, :name, :liquor_name, :type, :class_name, :_destroy])
+        params.require(:model).permit(:kms_model_name, :collection_name, :description, :label_field, :allow_creation_using_form, fields_attributes: [:id, :name, :liquor_name, :type, :class_name, :_destroy])
       end
 
     end
