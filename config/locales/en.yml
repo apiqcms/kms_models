@@ -12,6 +12,7 @@ en:
   select_field_type: "Select field type"
   select_model: "Select Model"
   collection_name_field_hint: "You can access model collection like this: models.your_collection_name (ex., models.services)"
+  label_field_hint: "Add at least one Field below. And then you could choose one that would be used for item permalink generation and entries list displaying"
   allow_creation_using_form_field_hint: "On website you can place a form allowing to create model entries"
   has_many_field_placeholder: "Select related objects..."
   belongs_to_field_placeholder: "Select related object..."

@@ -18,14 +18,14 @@ module Kms
           Kms::ResourceService.register(:models, @model, "fa-tasks")
           Kms::ModelsWrapperDrop.register_model @model.collection_name
         else
-          render json: {errors: @model.errors}.to_json, status: :unprocessable_entity
+          render json: { errors: @model.errors.full_messages }.to_json, status: :unprocessable_entity
         end
       end
 
       def update
         @model = Model.find(params[:id])
         unless @model.update_attributes(model_params)
-          render json: {errors: @model.errors}.to_json, status: :unprocessable_entity
+          render json: { errors: @model.errors.full_messages }.to_json, status: :unprocessable_entity
         end
       end
 

@@ -12,6 +12,7 @@ ru:
   select_field_type: "Выберите тип свойства"
   select_model: "Выберите модель"
   collection_name_field_hint: "К коллекции можно будет обратиться так: models.your_collection_name (напр., models.services)"
+  label_field_hint: "Добавьте хотя бы одно Свойство ниже. И затем вы можете выбрать свойство для генерации ссылки на элемент, а так же для отображения элементов в списке"
   allow_creation_using_form_field_hint: "На сайте можно будет разместить форму для создания элементов модели"
   has_many_field_placeholder: "Выберите связанные объекты..."
   belongs_to_field_placeholder: "Выберите связанный объект..."
