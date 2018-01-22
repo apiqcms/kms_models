@@ -3,7 +3,7 @@
     .widget
       .widget-header
         i.fa.fa-list
-        | {{ model.description }}
+        | {{ model.description || model.kms_model_name }}
         a.btn.btn-sm.btn-primary.pull-right ui-sref="models.entries.new({modelId: model.id})"
           = I18n.t("add_entry")
       .widget-body.no-padding
