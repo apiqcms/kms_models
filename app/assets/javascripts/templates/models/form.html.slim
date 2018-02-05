@@ -1,15 +1,36 @@
-.form-group
-  label for="kms_model_name" = Kms::Model.human_attribute_name(:kms_model_name)
-  input#kms_model_name.form-control type="text" ng-model="model.kms_model_name"
-.form-group
-  label for="collection_name" = Kms::Model.human_attribute_name(:collection_name)
-  input#collection_name.form-control type="text" ng-model="model.collection_name"
-  small.help-block = I18n.t(:collection_name_field_hint)
-.form-group
-  label for="label_field" = Kms::Model.human_attribute_name(:label_field)
-  select#label_field.form-control ng-model="model.label_field" ng-options="field.liquor_name as field.name for field in model.fields_attributes"
-.form-group
-  label for="allow_creation_using_form" style="margin-right:10px;"
-    = Kms::Model.human_attribute_name(:allow_creation_using_form)
-  toggle-switch ng-model="model.allow_creation_using_form" on-label=I18n.t(:yes_word) off-label=I18n.t(:no_word)
-  small.help-block = I18n.t(:allow_creation_using_form_field_hint)
+.row
+  .col-md-6.col-sm-12
+    .form-group
+      label for="kms_model_name" = Kms::Model.human_attribute_name(:kms_model_name)
+      input#kms_model_name.form-control type="text" ng-model="model.kms_model_name"
+    .form-group
+      label for="collection_name" = Kms::Model.human_attribute_name(:collection_name)
+      input#collection_name.form-control type="text" ng-model="model.collection_name"
+      small.help-block = I18n.t(:collection_name_field_hint)
+    .form-group
+      label for="label_field" = Kms::Model.human_attribute_name(:label_field)
+      select#label_field.form-control ng-model="model.label_field" ng-options="field.liquor_name as field.name for field in model.fields_attributes"
+    .form-group
+      label for="allow_creation_using_form" style="margin-right:10px;"
+        = Kms::Model.human_attribute_name(:allow_creation_using_form)
+      toggle-switch ng-model="model.allow_creation_using_form" on-label=I18n.t(:yes_word) off-label=I18n.t(:no_word)
+      small.help-block = I18n.t(:allow_creation_using_form_field_hint)
+  .col-md-6.col-sm-12
+    .widget.model-iteration-code-snippet
+      .widget-body
+        .widget-content
+          .widget-icon.pull-left
+            i class="fa fa-clipboard"
+          .title Model iteration hint
+          .comment Use sample code below for iterating your model entries in Template, Page or Snippet:
+          br
+          pre
+            | {% for element in: models.{{ model.collection_name }} do: %}
+            br
+            code ng-non-bindable=""
+              |   &lt;p&gt;{{
+            |  element.{{ model.label_field }}
+            code ng-non-bindable=""
+              |  }}&lt;/p&gt;
+            br
+            | {% end for %}

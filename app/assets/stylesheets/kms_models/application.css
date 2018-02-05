@@ -16,3 +16,9 @@
  .as-sortable-dragging td {
    padding: 0 10px;
  }
+ .widget.model-iteration-code-snippet {
+   margin-top: 23px;
+ }
+ .widget.model-iteration-code-snippet .widget-icon {
+   background: #ff5274;
+ }
