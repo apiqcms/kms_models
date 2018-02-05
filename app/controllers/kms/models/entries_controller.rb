@@ -19,7 +19,7 @@ module Kms
         if @entry.save
           render json: @entry, root: false
         else
-          render json: @entry.to_json(methods: :errors), status: :unprocessable_entity
+          render json: { errors: @entry.errors.full_messages }.to_json, status: :unprocessable_entity
         end
       end
 
@@ -29,7 +29,7 @@ module Kms
         if @entry.update_attributes(entry_params)
           render json: @entry, root: false
         else
-          render json: @entry.to_json(methods: :errors), status: :unprocessable_entity
+          render json: { errors: @entry.errors.full_messages }.to_json, status: :unprocessable_entity
         end
       end
 

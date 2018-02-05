@@ -34,7 +34,7 @@ module Kms
         end
         context 'when valid' do
           it "returns no content" do
-            attributes = { kms_model_name: 'Posts', collection_name: 'posts', allow_creation_using_form: true }
+            attributes = { kms_model_name: 'Posts', collection_name: 'posts', description: 'Posts', allow_creation_using_form: true }
             post :create, params: { model: attributes }, format: :json
             expect(response).to have_http_status(204)
             expect(Kms::Model.last.attributes.symbolize_keys).to include attributes

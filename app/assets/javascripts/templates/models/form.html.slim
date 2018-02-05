@@ -8,8 +8,13 @@
       input#collection_name.form-control type="text" ng-model="model.collection_name"
       small.help-block = I18n.t(:collection_name_field_hint)
     .form-group
+      label for="description" = Kms::Model.human_attribute_name(:description)
+      textarea#description.form-control ng-model="model.description"
+      small.help-block = I18n.t(:description_field_hint)
+    .form-group
       label for="label_field" = Kms::Model.human_attribute_name(:label_field)
       select#label_field.form-control ng-model="model.label_field" ng-options="field.liquor_name as field.name for field in model.fields_attributes"
+      small.help-block = I18n.t(:label_field_hint)
     .form-group
       label for="allow_creation_using_form" style="margin-right:10px;"
         = Kms::Model.human_attribute_name(:allow_creation_using_form)
