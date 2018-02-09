@@ -1,3 +1,13 @@
+## Version 1.1.0 2018-02-09
+
+* [added] add Date Field - closes #5
+* [added] add description to Models - closes #6
+* [added] add small UI element - model iteration hint
+* [changed] better error messages + hint for Label Field
+* [changed] use FontAwesome icons for identifying different field types
+* [fixed] use current locale for CKEditor - closes #17
+* [fixed] correct processing for CheckboxFields - closes #11
+
 ## Version 1.0.1 2017-08-09
 
 * [fixed] fix "uninitialized constant Rails::Generators::Base"
